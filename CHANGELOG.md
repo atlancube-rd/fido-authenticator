@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add config option to skip UP when device was just booted,
   as insertion is a kind of UP check @robin-nitrokey
 
-## [Unreleased]
+## [0.1.0] - 2022-03-17
 
 - use 2021 edition
 - use @szszszsz's credential ID shortening
