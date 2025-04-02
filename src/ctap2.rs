@@ -97,7 +97,7 @@ impl<UP: UserPresence, T: TrussedRequirements> Authenticator for crate::Authenti
         // };
 
         let mut transports = Vec::new();
-        transports.push(String::from("nfc")).unwrap();
+        // transports.push(String::from("nfc")).unwrap();
         transports.push(String::from("usb")).unwrap();
 
         let (_, aaguid) = self.state.identity.attestation(&mut self.trussed);
