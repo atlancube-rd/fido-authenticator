@@ -182,14 +182,13 @@ impl Identity {
             let mut aaguid = self.yank_aaguid(cert.as_slice());
 
             if aaguid.is_none() {
-                // Provide a default
-                aaguid = Some(*b"AAGUID0123456789");
+                aaguid = Some([0x01, 0x96, 0x14, 0xa3, 0x27, 0x03, 0x7e, 0x35, 0xa4, 0x53, 0x28, 0x5f, 0xd0, 0x6c, 0x5d, 0x24]);
             }
 
             (Some((key, cert)), aaguid.unwrap())
         } else {
             info_now!("attestation key does not exist");
-            (None, *b"AAGUID0123456789")
+            (None, [0x01, 0x96, 0x14, 0xa3, 0x27, 0x03, 0x7e, 0x35, 0xa4, 0x53, 0x28, 0x5f, 0xd0, 0x6c, 0x5d, 0x24])
         }
     }
 }
