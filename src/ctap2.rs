@@ -56,6 +56,9 @@ impl<UP: UserPresence, T: TrussedRequirements> Authenticator for crate::Authenti
         versions
             .push(String::from_str("FIDO_2_1_PRE").unwrap())
             .unwrap();
+        versions
+            .push(String::from_str("FIDO_2_1").unwrap())
+            .unwrap();
 
         let mut extensions = Vec::<String<11>, 4>::new();
         // extensions.push(String::from_str("credProtect").unwrap()).unwrap();
@@ -70,18 +73,18 @@ impl<UP: UserPresence, T: TrussedRequirements> Authenticator for crate::Authenti
         pin_protocols.push(1).unwrap();
 
         let options = ctap2::get_info::CtapOptions {
-            ep: None,
             rk: true,
             up: true,
-            uv: None,
             plat: Some(false),
-            cred_mgmt: Some(true),
+            cred_mgmt: Some(false),
             client_pin: match self.state.persistent.pin_is_set() {
                 true => Some(true),
                 false => Some(false),
             },
-            credential_mgmt_preview: Some(true),
-            make_cred_uv_not_rqd: Some(true),
+            credential_mgmt_preview: Some(false),
+            make_cred_uv_not_rqd: Some(false),
+            large_blobs: Some(false),
+            set_min_pin_length: Some(false),
             ..Default::default()
         };
         // options.rk = true;
