@@ -164,6 +164,9 @@ impl<UP: UserPresence, T: TrussedRequirements> Authenticator for crate::Authenti
                 return Err(Error::InvalidOption);
             }
         }
+        if parameters.enterprise_attestation.is_some() {
+            return Err(Error::InvalidParameter);
+        }
         let uv_performed = self.pin_prechecks(
             &parameters.options,
             &parameters.pin_auth,
