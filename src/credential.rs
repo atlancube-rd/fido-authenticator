@@ -349,6 +349,7 @@ mod test {
                 id: String::from("John Doe"),
                 name: None,
                 url: None,
+                icon: None,
             },
             user: PublicKeyCredentialUserEntity {
                 id: Bytes::from_slice(&[1, 2, 3]).unwrap(),
