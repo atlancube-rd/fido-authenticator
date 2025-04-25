@@ -52,10 +52,6 @@ impl<UP: UserPresence, T: TrussedRequirements> Authenticator for crate::Authenti
         versions
             .push(String::from_str("FIDO_2_0").unwrap())
             .unwrap();
-        // #[cfg(feature = "enable-fido-pre")]
-        versions
-            .push(String::from_str("FIDO_2_1_PRE").unwrap())
-            .unwrap();
         versions
             .push(String::from_str("FIDO_2_1").unwrap())
             .unwrap();
