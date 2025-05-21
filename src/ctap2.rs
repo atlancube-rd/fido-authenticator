@@ -160,7 +160,7 @@ impl<UP: UserPresence, T: TrussedRequirements> Authenticator for crate::Authenti
         // 1-4.
         if let Some(options) = parameters.options.as_ref() {
             // up option is not valid for make_credential
-            if options.up.is_some() {
+            if options.up.is_some() && options.up != Some(true) {
                 return Err(Error::InvalidOption);
             }
         }
